@@ -20,6 +20,16 @@ header h1 {
     margin: 0;
 }
 
+nav {
+    position: relative;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -31,6 +41,9 @@ nav ul {
     padding-right: 2rem;
     border-radius: 50px;
     background-color: #012f85;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav ul li {
@@ -48,17 +61,28 @@ section {
     margin: 20px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#contact{
+#contact {
     text-align: center;
 }
 
-#about{
+#about {
     display: flex;
     align-items: center;
     gap: 3rem;
+}
+
+.about-image, .about-text {
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional: adds rounded corners to the image */
 }
 
 section h2 {
@@ -78,14 +102,10 @@ footer > p {
     color: black;
 }
 
-#services > h2{
+#services > h2 {
     text-align: center;
     padding-bottom: 2rem;
 }
-
-/* .team-member > img{
-    height: 5rem;
-} */
 
 .service-container {
     display: flex;
@@ -138,11 +158,6 @@ footer > p {
     opacity: 1;
 }
 
-
-
-
-
-
 .team-container {
     display: flex;
     flex-wrap: wrap;
@@ -174,9 +189,47 @@ footer > p {
     color: #666;
 }
 
+.about-image > img {
+    height: 30vh;
+}
 .team-member:hover {
     transform: scale(1.05);
 }
 
 
 
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .about-image{
+        height: 5rem;
+    }
+    
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    #about {
+        flex-direction: column;
+    }
+
+    .service-item {
+        width: 100%;
+    }
+
+    .team-member {
+        flex: 1 1 100%;
+    }
+}
